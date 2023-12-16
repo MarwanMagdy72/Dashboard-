@@ -55,7 +55,11 @@ const Arr2 = [
 ];
 const Arr3 = [
   { text: "Bar Chart", icon: <BarChartOutlinedIcon />, path: "/barChart" },
-  { text: "Redial Chart", icon: <DonutLargeOutlinedIcon />, path: "/redialChart" },
+  {
+    text: "Redial Chart",
+    icon: <DonutLargeOutlinedIcon />,
+    path: "/redialChart",
+  },
   {
     text: "Line Chart",
     icon: <TimelineOutlinedIcon />,
@@ -119,7 +123,7 @@ export default function SideBar({ open, setOpen, DrawerHeader }) {
 
   return (
     <>
-      <Drawer variant="permanent" open={open}>
+      <Drawer variant="permanent"  open={open}>
         <DrawerHeader>
           <Link
             to={"/"}
@@ -164,6 +168,7 @@ export default function SideBar({ open, setOpen, DrawerHeader }) {
               fontWeight: "600",
               fontSize: open ? "22px" : "0",
               transition: "0.5s",
+              
             }}
           >
             Marwan Magdy
@@ -182,8 +187,13 @@ export default function SideBar({ open, setOpen, DrawerHeader }) {
 
         <List>
           {Arr1.map((item, index) => (
-            <Tooltip title={open ? "" : item.text} placement="left-start">
-              <ListItem key={index} disablePadding sx={{ display: "block" }}>
+            <Tooltip
+              ListItem
+              key={index}
+              title={open ? "" : item.text}
+              placement="left-start"
+            >
+              <Box sx={{ display: "block" }}>
                 <ListItemButton
                   sx={{
                     minHeight: 48,
@@ -215,16 +225,20 @@ export default function SideBar({ open, setOpen, DrawerHeader }) {
                     sx={{ opacity: open ? 1 : 0 }}
                   />
                 </ListItemButton>
-              </ListItem>
+              </Box>
             </Tooltip>
           ))}
         </List>
         <Divider />
-
+        {}
         <List>
           {Arr2.map((item, index) => (
-            <Tooltip title={open ? "" : item.text} placement="left-start">
-              <ListItem key={index} disablePadding sx={{ display: "block" }}>
+            <Tooltip
+              key={index}
+              title={open ? "" : item.text}
+              placement="left-start"
+            >
+              <ListItem disablePadding sx={{ display: "block" }}>
                 <ListItemButton
                   sx={{
                     minHeight: 48,
@@ -263,8 +277,12 @@ export default function SideBar({ open, setOpen, DrawerHeader }) {
 
         <List>
           {Arr3.map((item, index) => (
-            <Tooltip title={open ? "" : item.text} placement="left-start">
-              <ListItem key={index} disablePadding sx={{ display: "block" }}>
+            <Tooltip
+              key={index}
+              title={open ? "" : item.text}
+              placement="left-start"
+            >
+              <ListItem disablePadding sx={{ display: "block" }}>
                 <ListItemButton
                   sx={{
                     minHeight: 48,

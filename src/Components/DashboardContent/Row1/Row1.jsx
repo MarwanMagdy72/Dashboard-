@@ -1,8 +1,8 @@
 import React from "react";
 import {
   Box,
+  Grid,
   Paper,
-  Stack,
   Typography,
   useMediaQuery,
   useTheme,
@@ -13,71 +13,75 @@ import { data } from "./row1Data";
 export default function Row1() {
   const theme = useTheme();
   const isLargeScreen = useMediaQuery(theme.breakpoints.up("lg"));
-  const isExtraSmallScreen = useMediaQuery(theme.breakpoints.down("sm"));
 
   return (
     <Box>
       {data.map((papers, index) => (
-        <Stack
+        <Grid
           key={index}
-          sx={{
-            flexWrap: "wrap",
-
-            my: "10px",
-          }}
-          direction={"row"}
+          container
+          spacing={2}
+          direction="row"
+          justifyContent="center"
+          alignItems="stretch"
+          my={1}
         >
           {Object.values(papers).map((paper, paperIndex) => (
-            <Paper
+            <Grid
               key={paperIndex}
-              sx={{
-                display: "flex",
-                justifyContent: "space-between",
-                alignItems: "center",
-                width: isLargeScreen ? "340px" : "300px",
-                height: "130px",
-                borderRadius: "4px",
-
-                my: "5px",
-                padding: "10px",
-                mx: "auto",
-              }}
+              item
+              xs={12}
+              md={isLargeScreen ? 6 : 12}
+              lg={isLargeScreen ? 3 : 12}
             >
-              <Box
+              <Paper
                 sx={{
                   display: "flex",
-                  justifyContent: "center",
+                  justifyContent: "space-between",
                   alignItems: "center",
-                  width: "100%",
+                  height: "130px",
+                  borderRadius: "4px",
+                  
+                  padding: "10px",
+                  
                 }}
               >
                 <Box
                   sx={{
-                    flex: 1,
-                  }}
-                >
-                  <Typography color={theme.palette.primary.dark}>
-                    {paper.icon}
-                  </Typography>
-                  <Typography my={1.5}>{paper.value}</Typography>
-                  <Typography>{paper.subTitle}</Typography>
-                </Box>
-                <Box
-                  sx={{
-                    flex: 1,
                     display: "flex",
-                    flexDirection: "column",
-                    alignItems: "center",
                     justifyContent: "center",
+                    alignItems: "center",
+                    width: "100%",
                   }}
                 >
-                  <Typography> {paper.chart}</Typography>
-                  <Typography>{paper.chartValue}</Typography>
+                  <Box
+                    sx={{
+                      flex: 1,
+                    }}
+                  >
+                    <Typography color={theme.palette.primary.dark}>
+                      {paper.icon}
+                    </Typography>
+                    <Typography my={1.5}>{paper.value}</Typography>
+                    <Typography>{paper.subTitle}</Typography>
+                  </Box>
+                  <Box
+                    sx={{
+                      flex: 1,
+                      display: "flex",
+                      flexDirection: "column",
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Typography> {paper.chart}</Typography>
+                    <Typography>{paper.chartValue}</Typography>
+                  </Box>
                 </Box>
-              </Box>
-            </Paper>
+              </Paper>
+            </Grid>
           ))}
-        </Stack>
+        </Grid>
       ))}
     </Box>
   );

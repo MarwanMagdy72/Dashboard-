@@ -2,11 +2,11 @@ import * as React from "react";
 import { styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import CssBaseline from "@mui/material/CssBaseline";
-import TopBar from "../Components/TopBar";
-import SideBar from "./../Components/SideBar";
+import TopBar from "../../Components/TopBar";
+import SideBar from "../../Components/SideBar";
 import {  ThemeProvider, createTheme } from "@mui/material";
-import Content from "../Components/Content";
-import { getDesignTokens } from "../Themes/dark";
+import Content from "../../Components/Content";
+import { getDesignTokens } from "../../Themes/dark";
 
 
 const DrawerHeader = styled("div")(({ theme }) => ({

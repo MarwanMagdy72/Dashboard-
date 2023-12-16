@@ -1,6 +1,6 @@
 import React from 'react'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Home from './Pages/Home';
+import Home from './Pages/Home/Home';
 import Dashboard from './Pages/Dashboard/Dashboard';
 import BarChart from './Pages/BarChart/BarChart';
 import Calendar from './Pages/Calendar/Calendar';

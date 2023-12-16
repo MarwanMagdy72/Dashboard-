@@ -29,7 +29,7 @@ export default function Geography({ inDashboard = false }) {
 
       <Box
         sx={{
-          height: "80vh",
+          height: inDashboard ? "520px" : "80vh",
           my: "auto",
 
           p: "5px",
@@ -82,7 +82,7 @@ export default function Geography({ inDashboard = false }) {
                 },
               },
               text: {
-                fontSize: inDashboard? 0 :11,
+                fontSize: inDashboard ? 0 : 11,
                 fill: theme.palette.text.primary,
               },
               ticks: {
@@ -201,11 +201,7 @@ export default function Geography({ inDashboard = false }) {
               id: "gradient",
             },
           ]}
-
-      
           legends={[
-            
-            
             {
               anchor: "bottom-left",
               direction: "column",
@@ -217,7 +213,7 @@ export default function Geography({ inDashboard = false }) {
               itemHeight: 18,
               itemDirection: "left-to-right",
               itemTextColor: theme.palette.text.primary,
-              itemOpacity: inDashboard? 0 :0.85,
+              itemOpacity: inDashboard ? 0 : 0.85,
               symbolSize: 18,
               effects: [
                 {

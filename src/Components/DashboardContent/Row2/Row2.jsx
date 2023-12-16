@@ -1,5 +1,6 @@
 import {
   Box,
+  Grid,
   IconButton,
   Paper,
   Stack,
@@ -14,58 +15,68 @@ import { recentTransactions } from "./RecentTransactionsData";
 export default function Row2() {
   const theme = useTheme();
   return (
-    <Stack direction={"row"} gap={2} flexWrap="wrap">
-      <Paper
-        sx={{
-          maxWidth: 900,
-          minWidth: 300,
-          flexGrow: 1,
-          mx:'auto',
-          width: '100%',
-        }}
-      >
-        <Stack
-          direction={"row"}
-          p={"20px  20px  0px 20px"}
-          flexWrap="wrap"
-          justifyContent="space-between"
+    <Grid mt={1} container spacing={2}>
+      <Grid item xs={12} lg={6}>
+        <Paper
+          sx={{
+            maxWidth: 900,
+            minWidth: 300,
+            flexGrow: 1,
+            mx: "auto",
+            width: "100%",
+          }}
         >
-          <Stack>
-            <Typography
-              color={theme.palette.primary.dark}
-              sx={{ fontWeight: "bold" }}
-              variant="h5"
-            >
-              Revenue Generated
-            </Typography>
-            <Typography>$59,342.32</Typography>
-          </Stack>
-          <IconButton sx={{ width: "50px", height: "50px" }}>
-            <GetAppOutlinedIcon />
-          </IconButton>
-        </Stack>
-        <LineChart inDashboard={true} />
-      </Paper>
-
-      <Box
-        sx={{
-          maxHeight: 420,
-          flexGrow: 1,
-          overflow: "auto",
-        }}
-      >
-        <Paper >
-          <Typography
-            color={theme.palette.secondary.main}
-            fontWeight={"bold"}
-            p={1.2}
-            variant="h6"
+          <Stack
+            direction={"row"}
+            p={"20px  20px  0px 20px"}
+            flexWrap="wrap"
+            justifyContent="space-between"
           >
-            Recent Transactions
-          </Typography>
+            <Stack>
+              <Typography
+                color={theme.palette.primary.dark}
+                sx={{ fontWeight: "bold" }}
+                variant="h5"
+              >
+                Revenue Generated
+              </Typography>
+              <Typography>$59,342.32</Typography>
+            </Stack>
+            <IconButton sx={{ width: "50px", height: "50px" }}>
+              <GetAppOutlinedIcon />
+            </IconButton>
+          </Stack>
+          <LineChart inDashboard={true} />
         </Paper>
-        {recentTransactions.map((transaction) => {
-          return (
+      </Grid>
+
+      <Grid item xs={12} lg={6}>
+        <Paper
+          sx={{
+            maxHeight: 420,
+            flexGrow: 1,
+            overflow: "auto",
+          }}
+        >
+          <Paper
+            sx={{
+              position: "sticky",
+              top: 0,
+              backgroundColor: theme.palette.background.paper,
+              zIndex: 1,
+              p: 1.2,
+              borderBottom: "1px solid",
+            }}
+          >
+            <Typography
+              color={theme.palette.secondary.main}
+              fontWeight={"bold"}
+              variant="h6"
+            >
+              Recent Transactions
+            </Typography>
+          </Paper>
+          {recentTransactions.map((transaction, index) => (
             <Paper
               sx={{
                 my: "10px",
@@ -74,13 +85,23 @@ export default function Row2() {
                 justifyContent: "space-between",
                 alignItems: "center",
               }}
+              key={index}
             >
               <Stack>
                 <Typography variant="h6"> {transaction.registerId} </Typography>
                 <Typography>{transaction.name} </Typography>
               </Stack>
 
-              <Box fontWeight="bold">{transaction.date}</Box>
+              <Box
+                sx={{
+                  flex: 1,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                }}
+              >
+                <Box fontWeight="bold">{transaction.date}</Box>
+              </Box>
 
               <Box
                 sx={{
@@ -95,9 +116,9 @@ export default function Row2() {
                 {transaction.money} $
               </Box>
             </Paper>
-          );
-        })}
-      </Box>
-    </Stack>
+          ))}
+        </Paper>
+      </Grid>
+    </Grid>
   );
 }

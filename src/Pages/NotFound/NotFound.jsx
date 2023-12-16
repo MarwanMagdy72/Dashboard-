@@ -12,7 +12,7 @@ const NotFound = () => {
       <Typography variant="h5" paragraph>
         Oops! The page you are looking for might be unavailable or does not exist.
       </Typography>
-      <Button component={Link} to="/dashboard" variant="contained" color="primary">
+      <Button component={Link} to="/" variant="contained" color="primary">
         Go to Home
       </Button>
     </Container>
