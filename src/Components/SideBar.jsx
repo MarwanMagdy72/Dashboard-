@@ -154,7 +154,7 @@ export default function SideBar({ open, setOpen, DrawerHeader }) {
         >
           <Avatar
             alt="Travis Howard"
-            src="https://img.freepik.com/free-photo/young-bearded-man-with-striped-shirt_273609-5677.jpg"
+            src="https://i.pinimg.com/564x/de/7b/df/de7bdf43e2ae039eee0b69d7fa307e4b.jpg"
             sx={{
               width: open ? "90px" : "50px",
               height: open ? "90px" : "50px",
