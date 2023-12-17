@@ -32,6 +32,8 @@ Welcome to the Dashboard App repository! This responsive React application, buil
 2. Install dependencies: `npm install`
 3. Run the application: `npm run dev`
 
+Deployed version: [Dashboard App](https://dashboard-21b40.web.app/)
+
 Feel free to explore, customize, and enhance this dashboard app according to your specific needs. If you have any questions or feedback, please open an issue or contribute to the development!
 
 Happy coding! 🚀
